@@ -24,12 +24,15 @@
             html, body {
                 margin: 0;
                 padding: 0;
-                background: #f4f4f4;
+                background: black;
             }
             @media only screen and (orientation: landscape) and (max-device-width: 767px) {
                 #javatari {
                     max-width: 75%;
                 }
+            }
+            a {
+                color: white;
             }
         </style>
 
@@ -37,102 +40,110 @@
 
     </head>
 
-    <body>
-
-        <script>
-            JAVATARI_IMAGES_PATH = "../src/runtime/images/files/";
-        </script>
-
-        <script src="../src/main/Javatari.js"></script>
-        <script src="../src/main/room/screen/FullScreenSetup.js"></script>
-        <script src="../src/main/util/Util.js"></script>
-        <script src="../src/main/util/MD5.js"></script>
-        <script src="../src/main/util/ZIP.js"></script>
-        <script src="../src/main/util/EmbeddedFiles.js"></script>
-        <script src="../src/main/util/MultiDownloader.js"></script>
-        <script src="../src/main/util/MultiFileReader.js"></script>
-        <script src="../src/main/atari/video/VideoStandard.js"></script>
-        <script src="../src/main/atari/video/VideoSignal.js"></script>
-        <script src="../src/main/atari/audio/AudioSignal.js"></script>
-        <script src="../src/main/atari/cpu/M6502.js"></script>
-        <script src="../src/main/atari/pia/Ram.js"></script>
-        <script src="../src/main/atari/pia/Pia.js"></script>
-        <script src="../src/main/atari/tia/TiaPalettes.js"></script>
-        <script src="../src/main/atari/tia/TiaAudio.js"></script>
-        <script src="../src/main/atari/tia/TiaAudioChannel.js"></script>
-        <script src="../src/main/atari/tia/Tia.js"></script>
-        <script src="../src/main/atari/console/Bus.js"></script>
-        <script src="../src/main/atari/console/AtariConsole.js"></script>
-        <script src="../src/main/atari/controls/JoystickButtons.js"></script>
-        <script src="../src/main/atari/controls/ConsoleControls.js"></script>
-        <script src="../src/main/atari/cartridge/ROM.js"></script>
-        <script src="../src/main/atari/cartridge/CartridgeDatabase.js"></script>
-        <script src="../src/main/atari/cartridge/Cartridge.js"></script>
-        <script src="../src/main/atari/cartridge/formats/Cartridge4K.js"></script>
-        <script src="../src/main/atari/cartridge/formats/Cartridge2K_CV.js"></script>
-        <script src="../src/main/atari/cartridge/formats/CartridgeBankedByMaskedRange.js"></script>
-        <script src="../src/main/atari/cartridge/formats/Cartridge8K_E0.js"></script>
-        <script src="../src/main/atari/cartridge/formats/Cartridge64K_F0.js"></script>
-        <script src="../src/main/atari/cartridge/formats/Cartridge8K_FE.js"></script>
-        <script src="../src/main/atari/cartridge/formats/Cartridge16K_E7.js"></script>
-        <script src="../src/main/atari/cartridge/formats/Cartridge10K_DPCa.js"></script>
-        <script src="../src/main/atari/cartridge/formats/Cartridge24K_28K_32K_FA2.js"></script>
-        <script src="../src/main/atari/cartridge/formats/CartridgeBankedByBusMonitoring.js"></script>
-        <script src="../src/main/atari/cartridge/formats/Cartridge8K_512K_3F.js"></script>
-        <script src="../src/main/atari/cartridge/formats/Cartridge8K_512K_3E.js"></script>
-        <script src="../src/main/atari/cartridge/formats/Cartridge8K_256K_SB.js"></script>
-        <script src="../src/main/atari/cartridge/formats/Cartridge8K_64K_AR.js"></script>
-        <script src="../src/main/atari/cartridge/formats/Cartridge64K_X07.js"></script>
-        <script src="../src/main/atari/cartridge/formats/Cartridge8K_0840.js"></script>
-        <script src="../src/main/atari/cartridge/formats/Cartridge8K_UA.js"></script>
-        <script src="../src/main/atari/cartridge/CartridgeFormats.js"></script>
-        <script src="../src/main/atari/cartridge/CartridgeCreator.js"></script>
-        <script src="../src/main/images/Images.js"></script>
-        <script src="../src/main/room/clock/Clock.js"></script>
-        <script src="../src/main/room/files/RecentStoredROMs.js"></script>
-        <script src="../src/main/room/files/FileLoader.js"></script>
-        <script src="../src/main/room/files/FileDownloader.js"></script>
-        <script src="../src/main/room/controls/DOMKeys.js"></script>
-        <script src="../src/main/room/controls/GamepadButtons.js"></script>
-        <script src="../src/main/room/controls/TouchControls.js"></script>
-        <script src="../src/main/room/controls/GamepadConsoleControls.js"></script>
-        <script src="../src/main/room/controls/DOMTouchControls.js"></script>
-        <script src="../src/main/room/controls/DOMConsoleControls.js"></script>
-        <script src="../src/main/room/screen/es6/ScreenGUI.js"></script>
-        <script src="../src/main/room/screen/Monitor.js"></script>
-        <script src="../src/main/room/screen/ConsolePanel.js"></script>
-        <script src="../src/main/room/screen/CanvasDisplay.js"></script>
-        <script src="../src/main/room/screen/dialogs/RecentROMsDialog.js"></script>
-        <script src="../src/main/room/screen/dialogs/SaveStateDialog.js"></script>
-        <script src="../src/main/room/screen/dialogs/QuickOptionsDialog.js"></script>
-        <script src="../src/main/room/screen/dialogs/NetPlayDialog.js"></script>
-        <script src="../src/main/room/screen/dialogs/CartridgeFormatDialog.js"></script>
-        <script src="../src/main/room/screen/es6/SettingsGUI.js"></script>
-        <script src="../src/main/room/screen/settings/Settings.js"></script>
-        <script src="../src/main/room/speaker/WebAudioSpeaker.js"></script>
-        <script src="../src/main/room/savestate/LocalStorageSaveStateMedia.js"></script>
-        <script src="../src/main/room/controls/PeripheralControls.js"></script>
-        <script src="../src/main/room/controls/DOMPeripheralControls.js"></script>
-        <script src="../src/main/room/netplay/NetServer.js"></script>
-        <script src="../src/main/room/netplay/NetClient.js"></script>
-        <script src="../src/main/room/Room.js"></script>
-        <script src="../src/main/userprefs/UserPreferences.js"></script>
-        <script src="../src/main/userprefs/UserROMFormats.js"></script>
-        <script src="../src/runtime/images/EmbeddedImages.js"></script>
-        <script src="../src/main/Configurator.js"></script>
-        <script src="../src/main/Launcher.js"></script>
-
-        <div id="javatari" style="text-align: center; margin: 2px auto 0; padding: 0 10px;">
-            <div id="javatari-screen" style="box-shadow: 2px 2px 10px rgba(0, 0, 0, .7);"></div>
-        </div>
-
-        <script>
-
-            Javatari.AUTO_POWER_ON_DELAY = 0;
-            // Javatari.CARTRIDGE_URL = "roms/Basic Math (USA).a26";
-
-        </script>
-
+    <body >
+        <a href="games.html?ROM=roms/3-D Tic-Tac-Toe (1978) (Atari).a26" target="_blank">3-D Tic-Tac-Toe (1978) (Atari).a26</a><br>
+        <a href="games.html?ROM=roms/A Game of Concentration.a26" target="_blank">A Game of Concentration.a26</a><br>
+        <a href="games.html?ROM=roms/Adventure (1978).a26" target="_blank">Adventure (1978).a26</a><br>
+        <a href="games.html?ROM=roms/Adventure II.a26" target="_blank">Adventure II.a26</a><br>
+        <a href="games.html?ROM=roms/Air-Sea Battle (1977).a26" target="_blank">Air-Sea Battle (1977).a26</a><br>
+        <a href="games.html?ROM=roms/Aquaventure (CCE).a26" target="_blank">Aquaventure (CCE).a26</a><br>
+        <a href="games.html?ROM=roms/Asteroids (1979).a26" target="_blank">Asteroids (1979).a26</a><br>
+        <a href="games.html?ROM=roms/Asteroids (1987).a78" target="_blank">Asteroids (1987).a78</a><br>
+        <a href="games.html?ROM=roms/Atari Video Cube (1982).a26" target="_blank">Atari Video Cube (1982).a26</a><br>
+        <a href="games.html?ROM=roms/Backgammon (1978).a26" target="_blank">Backgammon (1978).a26</a><br>
+        <a href="games.html?ROM=roms/Basic Math (USA).a26" target="_blank">Basic Math (USA).a26</a><br>
+        <a href="games.html?ROM=roms/Basketball (1978).a26" target="_blank">Basketball (1978).a26</a><br>
+        <a href="games.html?ROM=roms/Bionic Breakthrough (1984).a26" target="_blank">Bionic Breakthrough (1984).a26</a><br>
+        <a href="games.html?ROM=roms/Blackjack (USA).a26" target="_blank">Blackjack (USA).a26</a><br>
+        <a href="games.html?ROM=roms/Bowling (1979).a26" target="_blank">Bowling (1979).a26</a><br>
+        <a href="games.html?ROM=roms/Boxing (1980).a26" target="_blank">Boxing (1980).a26</a><br>
+        <a href="games.html?ROM=roms/Brain Games (USA).a26" target="_blank">Brain Games (USA).a26</a><br>
+        <a href="games.html?ROM=roms/Breakout (1978).a26" target="_blank">Breakout (1978).a26</a><br>
+        <a href="games.html?ROM=roms/Canyon Bomber (1979).a26" target="_blank">Canyon Bomber (1979).a26</a><br>
+        <a href="games.html?ROM=roms/Casino (1979).a26" target="_blank">Casino (1979).a26</a><br>
+        <a href="games.html?ROM=roms/Centipede (1982).a26" target="_blank">Centipede (1982).a26</a><br>
+        <a href="games.html?ROM=roms/Centipede.a26" target="_blank">Centipede.a26</a><br>
+        <a href="games.html?ROM=roms/Championship Soccer (AKA Pele_s Soccer).a26" target="_blank">Championship Soccer (AKA Pele_s Soccer).a26</a><br>
+        <a href="games.html?ROM=roms/Circus Atari (1980).a26" target="_blank">Circus Atari (1980).a26</a><br>
+        <a href="games.html?ROM=roms/Codebreaker (USA).a26" target="_blank">Codebreaker (USA).a26</a><br>
+        <a href="games.html?ROM=roms/Combat (1977)).a26" target="_blank">Combat (1977)).a26</a><br>
+        <a href="games.html?ROM=roms/Combat 2.a26" target="_blank">Combat 2.a26</a><br>
+        <a href="games.html?ROM=roms/Crystal Castles (1984).a26" target="_blank">Crystal Castles (1984).a26</a><br>
+        <a href="games.html?ROM=roms/Dark Chambers (1988).a26" target="_blank">Dark Chambers (1988).a26</a><br>
+        <a href="games.html?ROM=roms/Demons to Diamonds (1982)).a26" target="_blank">Demons to Diamonds (1982)).a26</a><br>
+        <a href="games.html?ROM=roms/Desert Falcon (1987).a26" target="_blank">Desert Falcon (1987).a26</a><br>
+        <a href="games.html?ROM=roms/Dodge _Em (1980).a26" target="_blank">Dodge _Em (1980).a26</a><br>
+        <a href="games.html?ROM=roms/Double Dunk (1989).a26" target="_blank">Double Dunk (1989).a26</a><br>
+        <a href="games.html?ROM=roms/Drag race.a26" target="_blank">Drag race.a26</a><br>
+        <a href="games.html?ROM=roms/Fatal Run.a26" target="_blank">Fatal Run.a26</a><br>
+        <a href="games.html?ROM=roms/Flag Capture (1978).a26" target="_blank">Flag Capture (1978).a26</a><br>
+        <a href="games.html?ROM=roms/Football (1978).a26" target="_blank">Football (1978).a26</a><br>
+        <a href="games.html?ROM=roms/Frog Pond.a26" target="_blank">Frog Pond.a26</a><br>
+        <a href="games.html?ROM=roms/Golf (1980).a26" target="_blank">Golf (1980).a26</a><br>
+        <a href="games.html?ROM=roms/Gravitar (1983).a26" target="_blank">Gravitar (1983).a26</a><br>
+        <a href="games.html?ROM=roms/Hangman (1978).a26" target="_blank">Hangman (1978).a26</a><br>
+        <a href="games.html?ROM=roms/Haunted House (1981).a26" target="_blank">Haunted House (1981).a26</a><br>
+        <a href="games.html?ROM=roms/Holey Moley.a26" target="_blank">Holey Moley.a26</a><br>
+        <a href="games.html?ROM=roms/Home Run (1978).a26" target="_blank">Home Run (1978).a26</a><br>
+        <a href="games.html?ROM=roms/Human Cannonball (1979).a26" target="_blank">Human Cannonball (1979).a26</a><br>
+        <a href="games.html?ROM=roms/I Robot (1984).a26" target="_blank">I Robot (1984).a26</a><br>
+        <a href="games.html?ROM=roms/Indy 500 (1977).a26" target="_blank">Indy 500 (1977).a26</a><br>
+        <a href="games.html?ROM=roms/Maze Craze (1978).a26" target="_blank">Maze Craze (1978).a26</a><br>
+        <a href="games.html?ROM=roms/Millipede (1984).a26" target="_blank">Millipede (1984).a26</a><br>
+        <a href="games.html?ROM=roms/Miniature Golf (1979).a26" target="_blank">Miniature Golf (1979).a26</a><br>
+        <a href="games.html?ROM=roms/Missile Command (1981).a26" target="_blank">Missile Command (1981).a26</a><br>
+        <a href="games.html?ROM=roms/MotoRodeo (1990).a26" target="_blank">MotoRodeo (1990).a26</a><br>
+        <a href="games.html?ROM=roms/Night Driver (1980).a26" target="_blank">Night Driver (1980).a26</a><br>
+        <a href="games.html?ROM=roms/Off the Wall (1989).a26" target="_blank">Off the Wall (1989).a26</a><br>
+        <a href="games.html?ROM=roms/Outlaw (1978).a26" target="_blank">Outlaw (1978).a26</a><br>
+        <a href="games.html?ROM=roms/Pitfall.bin" target="_blank">Pitfall.bin</a><br>
+        <a href="games.html?ROM=roms/Quadrun.a26" target="_blank">Quadrun.a26</a><br>
+        <a href="games.html?ROM=roms/Radar Lock (1989).a26" target="_blank">Radar Lock (1989).a26</a><br>
+        <a href="games.html?ROM=roms/RealSports Baseball (1982).a26" target="_blank">RealSports Baseball (1982).a26</a><br>
+        <a href="games.html?ROM=roms/RealSports Basketball.a26" target="_blank">RealSports Basketball.a26</a><br>
+        <a href="games.html?ROM=roms/RealSports Boxing (1987).a26" target="_blank">RealSports Boxing (1987).a26</a><br>
+        <a href="games.html?ROM=roms/RealSports Football (1982).a26" target="_blank">RealSports Football (1982).a26</a><br>
+        <a href="games.html?ROM=roms/RealSports Soccer (1983).a26" target="_blank">RealSports Soccer (1983).a26</a><br>
+        <a href="games.html?ROM=roms/RealSports Tennis (1983).a26" target="_blank">RealSports Tennis (1983).a26</a><br>
+        <a href="games.html?ROM=roms/RealSports Volleyball (1982).a26" target="_blank">RealSports Volleyball (1982).a26</a><br>
+        <a href="games.html?ROM=roms/Road Runner.a26" target="_blank">Road Runner.a26</a><br>
+        <a href="games.html?ROM=roms/Saboteur.a26" target="_blank">Saboteur.a26</a><br>
+        <a href="games.html?ROM=roms/Save Mary! (USA).a26" target="_blank">Save Mary! (USA).a26</a><br>
+        <a href="games.html?ROM=roms/Secret Quest (1989).a26" target="_blank">Secret Quest (1989).a26</a><br>
+        <a href="games.html?ROM=roms/Sentinel (1990).a26" target="_blank">Sentinel (1990).a26</a><br>
+        <a href="games.html?ROM=roms/Sky Diver (1978).a26" target="_blank">Sky Diver (1978).a26</a><br>
+        <a href="games.html?ROM=roms/Slot Machine - Slots (USA).a26" target="_blank">Slot Machine - Slots (USA).a26</a><br>
+        <a href="games.html?ROM=roms/Slot Racers (1978).a26" target="_blank">Slot Racers (1978).a26</a><br>
+        <a href="games.html?ROM=roms/Soccer (1989).a26" target="_blank">Soccer (1989).a26</a><br>
+        <a href="games.html?ROM=roms/Solaris (1986).a26" target="_blank">Solaris (1986).a26</a><br>
+        <a href="games.html?ROM=roms/Space Duel.a26" target="_blank">Space Duel.a26</a><br>
+        <a href="games.html?ROM=roms/Space Raid (1983).a26" target="_blank">Space Raid (1983).a26</a><br>
+        <a href="games.html?ROM=roms/Space War (1978).a26" target="_blank">Space War (1978).a26</a><br>
+        <a href="games.html?ROM=roms/Sprint Master (1988).a26" target="_blank">Sprint Master (1988).a26</a><br>
+        <a href="games.html?ROM=roms/Star Raiders (1982).a26" target="_blank">Star Raiders (1982).a26</a><br>
+        <a href="games.html?ROM=roms/Star Ship - Outer Space (1977).a26" target="_blank">Star Ship - Outer Space (1977).a26</a><br>
+        <a href="games.html?ROM=roms/Steeplechase (1980).a26" target="_blank">Steeplechase (1980).a26</a><br>
+        <a href="games.html?ROM=roms/Stellar Track (1980).a26" target="_blank">Stellar Track (1980).a26</a><br>
+        <a href="games.html?ROM=roms/Street Racer - Speedway II (1978).a26" target="_blank">Street Racer - Speedway II (1978).a26</a><br>
+        <a href="games.html?ROM=roms/Stunt Cycle.a26" target="_blank">Stunt Cycle.a26</a><br>
+        <a href="games.html?ROM=roms/Submarine Commander (1982).a26" target="_blank">Submarine Commander (1982).a26</a><br>
+        <a href="games.html?ROM=roms/Super Baseball.a26" target="_blank">Super Baseball.a26</a><br>
+        <a href="games.html?ROM=roms/Super Breakout (1978).a26" target="_blank">Super Breakout (1978).a26</a><br>
+        <a href="games.html?ROM=roms/Super Football (1988).a26" target="_blank">Super Football (1988).a26</a><br>
+        <a href="games.html?ROM=roms/Surround (1978).a26" target="_blank">Surround (1978).a26</a><br>
+        <a href="games.html?ROM=roms/SwordQuest - Earthworld (1982).a26" target="_blank">SwordQuest - Earthworld (1982).a26</a><br>
+        <a href="games.html?ROM=roms/SwordQuest - Fireworld (1982).a26" target="_blank">SwordQuest - Fireworld (1982).a26</a><br>
+        <a href="games.html?ROM=roms/SwordQuest - Waterworld (1983).a26" target="_blank">SwordQuest - Waterworld (1983).a26</a><br>
+        <a href="games.html?ROM=roms/Tempest.a26" target="_blank">Tempest.a26</a><br>
+        <a href="games.html?ROM=roms/Video Checkers.a26" target="_blank">Video Checkers.a26</a><br>
+        <a href="games.html?ROM=roms/Video Chess (USA).a26" target="_blank">Video Chess (USA).a26</a><br>
+        <a href="games.html?ROM=roms/Video Olympics - Pong Sports (USA).a26" target="_blank">Video Olympics - Pong Sports (USA).a26</a><br>
+        <a href="games.html?ROM=roms/Video Pinball - Arcade Pinball (USA).a26" target="_blank">Video Pinball - Arcade Pinball (USA).a26</a><br>
+        <a href="games.html?ROM=roms/Warlords (1981) (Atari).a26" target="_blank">Warlords (1981) (Atari).a26</a><br>
+        <a href="games.html?ROM=roms/Warlords (USA).a26" target="_blank">Warlords (USA).a26</a><br>
+        <a href="games.html?ROM=roms/Wizard (USA).a26" target="_blank">Wizard (USA).a26</a><br>
+        <a href="games.html?ROM=roms/Yar_s Revenge (1981).a26" target="_blank">Yar_s Revenge (1981).a26</a><br>
+        <a href="games.html?ROM=roms/Yars_ Return.a26" target="_blank">Yars_ Return.a26</a><br>
     </body>
 
 </html>
